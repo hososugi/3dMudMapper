@@ -1,0 +1,153 @@
+root,
+document,
+html,
+body {
+  background-color: #EDEDEA;
+  min-width: 100%;
+  min-height: 100%;
+  color: #8E9A8A;
+  font-family: 'segoe ui', 'lucida sans unicode', 'lucida grande', lucida, sans-serif;
+  overflow-x: hidden;
+}
+header {
+  position: relative;
+  background-color: #D4E6CE;
+  font-size: 24px;
+  padding: 10px 0px;
+  z-index: 2;
+}
+#userContainer {
+  display: none;
+  text-align: right;
+}
+#user {
+  font-size: 14px;
+}
+#menu_logout_ul {
+  position: absolute;
+  right: 0;
+  left: auto;
+}
+#loginRow {
+  margin-top: 100px;
+}
+@media (max-width: 768px) {
+  #loginRow {
+    margin-top: 10px;
+  }
+}
+#loginRow .row {
+  margin: 5px 0px;
+}
+#loginRow label {
+  text-align: right;
+  width: 100%;
+  line-height: 28px;
+}
+@media (max-width: 768px) {
+  #loginRow label {
+    text-align: left;
+  }
+}
+#login_button {
+  background-color: #F495A2;
+  color: white;
+}
+#chatRow {
+  display: none;
+}
+#chatMessages {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.chatMessageRow {
+  margin: 5px 0px;
+}
+.chatMessageName {
+  float: left;
+  padding: 5px;
+}
+.chatMessageText {
+  float: left;
+  position: relative;
+  min-height: 20px;
+  background-color: #F5F7F5;
+  padding: 5px 10px;
+  margin-left: 20px;
+  border-radius: 3px;
+}
+.chatMessageText:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -15px;
+  border-style: solid;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #F5F7F5;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+.chatMessageText_self {
+  background-color: #F495A2;
+  color: white;
+}
+.chatMessageText_self:after {
+  border-color: transparent #F495A2;
+}
+#chatInput {
+  padding: 5px 0px;
+}
+#chatSendButton {
+  background-color: #F495A2;
+  color: white;
+}
+.user-row {
+  height: 30px;
+  width: 100%;
+  position: relative;
+  margin: 5px 0px;
+}
+.user-list-image-container {
+  width: 28px;
+  height: 28px;
+  padding: 1px;
+  background-color: white;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  float: left;
+  text-align: center;
+}
+.user-list-image-container:hover {
+  border-color: #F495A2;
+}
+.user-list-image-container_self {
+  border-color: #F495A2;
+  background-color: #F495A2;
+}
+.user-list-image-container_self:hover {
+  border-color: #FFFFFF;
+}
+.user-list-image-container img {
+  height: 20px;
+}
+.user-list-name {
+  float: left;
+  line-height: 30px;
+  overflow: hidden;
+  padding-left: 6px;
+}
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+.no-padding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.no-padding-left {
+  padding-left: 0px;
+}
+.no-padding-right {
+  padding-right: 0px;
+}

@@ -1,0 +1,374 @@
+@import "colors";
+
+@font-face {
+  font-family: 'Tenali Ramakrishna';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../css/fonts/TenaliRamakrishna/TenaliRamakrishna.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../css/fonts/SegoeUI/SegoeUI.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../css/fonts/OpenSans-CondensedLight/OpenSans-CondensedLight.woff2') format('woff2');
+}
+
+root, document, html, body {
+   background-color:    @colorBackground;
+   width:               100%;
+   height:              100%;
+   color:               @colorFontDefault;
+   font-size:           14px;
+   font-family:         'Open Sans Condensed', 'lucida sans unicode', 'lucida grande', lucida, sans-serif;
+   overflow-x:          hidden;
+}
+
+header {
+   background-color:    @colorHeader;
+   position:            relative;
+   font-size:           24px;
+   padding:             10px 0px;
+   border-bottom:       0px solid @colorHeaderDark;
+   z-index:             2;
+   color:               @colorFont;
+   box-shadow:          0px 3px 14px 0px #CCC;
+   
+   #title {
+      position:            relative;
+      font-size:           24px;
+      line-height:         41px;
+      font-weight:         bold;
+      cursor:              pointer;
+      color:               @colorWhite;
+      padding-left:        2px;
+      
+      img {
+         position:            absolute;
+         top:                 1px;
+         left:                0px;
+         z-index:             -1;
+         max-height:          100%
+      }
+   }
+   #title:hover {
+      text-decoration:     underline;
+      text-decoration-color: @colorSelection;
+   }
+}
+footer {
+   display:             none;
+   position:            absolute;
+   bottom:              0px;
+   left:                0px;
+   width:               100%;
+   background-color:    @colorHeader;
+   padding:             5px;
+   
+   #editing-input {
+      width:            100%;
+   }
+   
+   .alert {
+      
+   }
+}
+#userContainer {
+   display:             none;
+   text-align:          right;
+}
+#user {
+   font-size:           14px;
+}
+#menu_logout_ul {
+   position:            absolute;
+   right:               0;
+   left:                auto;
+}
+#pageContainer {
+   position:            relative;
+   perspective:         1000px;
+   -webkit-perspective: 1000;
+
+   #loginRow, #loginShadowRow {
+      margin-top:          100px;
+      transform:           translateZ(0px);
+
+      .row {
+         margin:              30px 0px;
+      }
+
+      input {
+         font-size:           24px;
+         color:               @colorFont;
+         line-height:         24px;
+         padding:             30px;
+         background:          @colorHeader;
+         border:              2px solid transparent;
+         transform-style:     preserve-3d;
+         transform-origin:    center center; 
+         backface-visibility: visible;
+         transform:           rotateX( 0deg );
+         transition:          transform 50ms ease;
+      }
+      input::-webkit-input-placeholder { /* WebKit browsers */
+         color:               #CCC;
+      }
+      input:hover {
+         border-color:        white;
+      }
+   }
+   @media (max-width: 768px){
+      #loginRow {
+         margin-top:          10px;
+      }
+   }
+}
+
+#gameRow {
+   position:            relative;
+   margin:              0px;
+   display:             none;
+   
+   canvas {
+      position:         absolute;
+      top:              0px;
+      left:             0px;
+      width:            100%;
+      height:           100%;
+   }
+}
+
+.menu {
+   position:         absolute;
+   top:              10px;
+   left:             5px;
+   z-index:          10;
+   border-radius:    3px;
+   width:            200px;
+   background-color: @colorHeaderDark;
+   box-shadow:       0px 3px 14px 0px #CCC;
+   
+   .menu-header {
+      cursor:              pointer;
+      padding-top:         2px;
+   }
+   .menu-body {
+      border:              1px solid rgba(0,0,0,.1);
+      border-radius:       3px;
+      background:          @colorHeader;
+      padding:             5px;
+      
+      .row {
+         margin:           5px auto;
+      }
+      .divider {
+         margin:           5px auto;
+         border-bottom:    1px solid @colorHeaderDark;
+      }
+      input, textarea {
+         width:            100%;
+      }
+      input[type=checkbox] {
+         width:            auto;
+      }
+   }
+   
+}
+#propertiesMenu {
+   left:                inherit;
+   right:               5px;
+}
+
+.btn {
+   font-size:           24px;
+   border:              2px solid transparent;
+   padding:             10px 15px;
+   color:               white;
+   transform-style:     preserve-3d;
+   transform-origin:    center center; 
+   backface-visibility: visible;
+   transform:           rotateX( 0deg );
+   transition:          transform 50ms ease;
+}
+.btn:hover {
+   border-color:        white;
+}
+.btn-transparent {
+   background-color:    transparent;
+}
+.btn-transparent:hover {
+   background-color:    transparent;
+   color:               white;
+}
+.btn-transparent:active {
+   background-color:    rgba(255,255,255,.1);
+   color:               white;
+}
+
+.btn-positive {
+   background-color:    @colorGood;
+}
+.btn-positive:hover {
+   background-color:    @colorGood;
+   color:               white;
+}
+.btn-positive:focus {
+   background-color:    @colorGood;
+   border-color:        white;
+   color:               white;
+   box-shadow:          none;
+}
+.btn-positive:focus:active {
+   background-color:    @colorGoodDark;
+   border-color:        white;
+   color:               white;
+   box-shadow:          none;
+}
+
+.btn-negative {
+   background-color:    @colorBad;
+}
+.btn-negative:hover {
+   background-color:    @colorBad;
+   color:               white;
+}
+.btn-negative:focus {
+   background-color:    @colorBad;
+   color:               white;
+   color:               white;
+   box-shadow:          none;
+}
+.btn-negative:focus:active {
+   background-color:    @colorBadDark;
+   color:               white;
+   color:               white;
+   box-shadow:          none;
+}
+
+.btn-disabled, .btn-disabled:hover, .btn-disabled:focus, .btn-disabled:focus:active {
+   opacity:             .3;
+   border-color:        transparent;
+   box-shadow:          none;
+   color:               white;
+}
+
+#chatRow {
+   display:             none;
+}
+
+#chatMessages {
+   overflow-x:          hidden;
+   overflow-y:          auto;
+}
+
+.chatMessageRow {
+   margin:              5px 0px;
+}
+.chatMessageName {
+   float:               left;
+   padding:             5px;
+}
+.chatMessageText {
+   float:               left;
+   position:            relative;
+   min-height:          20px;
+   background-color:    #F5F7F5;
+   padding:             5px 10px ;
+   margin-left:         20px;
+   border-radius:       3px;
+}
+.chatMessageText:after {
+    content:            "";
+    position:           absolute;
+    top:                5px;
+    left:               -15px;
+    border-style:       solid;
+    border-width:       10px 15px 10px 0;
+    border-color:       transparent #F5F7F5;
+    display:            block;
+    width:              0;
+    z-index:            1;
+}
+.chatMessageText_self {
+   background-color:    #F495A2;
+   color:               white;
+}
+.chatMessageText_self:after {
+    border-color:       transparent #F495A2;
+}
+
+#chatInput {
+   padding:             5px 0px;
+}
+#chatSendButton {
+   background-color:    #F495A2;
+   color:               white;
+}
+
+.user-row {
+   height:              30px;
+   width:               100%;
+   position:            relative;
+   margin:              5px 0px;
+}
+.user-list-image-container {
+   width:               28px;
+   height:              28px;
+   padding:             1px;
+   background-color:    white;
+   border:              1px solid #FFFFFF;
+   border-radius:       50%;
+   float:               left;
+   text-align:          center;
+}
+.user-list-image-container:hover{
+   border-color:        #F495A2;
+}
+.user-list-image-container_self {
+   border-color:        #F495A2;
+   background-color:    #F495A2;
+}
+.user-list-image-container_self:hover {
+   border-color:        #FFFFFF;
+}
+.user-list-image-container_system {
+}
+.user-list-image-container img {
+   height:              20px;
+}
+.user-list-name {
+   float:               left;
+   line-height:         30px;
+   overflow:            hidden;
+   padding-left:        6px;
+}
+
+
+a {
+   color:               inherit;
+   text-decoration:     none;
+}
+.highlight-good {
+   color:               @colorGood;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+.no-padding {
+   padding-left:        0px;
+   padding-right:       0px;
+}
+.no-padding-left {
+   padding-left:        0px;
+}
+.no-padding-right {
+   padding-right:       0px;
+}
